@@ -24,9 +24,34 @@ class Player2
 			return sign;
 		}
 };
-void checkRules(string array[][5])
+bool checkRules(string array[][5])
 {
-	if()
+	//ROWS
+	if(array[0][0]=="O" && array[0][2]=="O" && array[0][4]=="O" || 
+		array[1][1]=="O" && array[1][2]=="O" && array[1][4]=="O" ||
+		array[2][1]=="O" && array[2][2]=="O" && array[2][4]=="O")
+	{
+		return false;
+	}
+	if(array[0][0]=="X" && array[0][2]=="X" && array[0][4]=="X" || 
+		array[1][0]=="X" && array[1][2]=="X" && array[1][4]=="X" ||
+		array[2][0]=="X" && array[2][2]=="X" && array[2][4]=="X")
+	{
+		return false;
+	}
+	//Columns
+	if(array[0][0]=="O" && array[1][0]=="O" && array[2][0]=="O" || 
+	array[0][2]=="O" && array[1][2]=="O" && array[3][2]=="O" || 
+	array[0][3]=="O" && array[1][3]=="O" && array[2][3]=="O")
+	{
+		return false;
+	}
+	if(array[0][0]=="X" && array[1][0]=="X" && array[2][0]=="X" || 
+	array[0][2]=="X" && array[1][2]=="X" && array[3][2]=="X" || 
+	array[0][3]=="X" && array[1][3]=="X" && array[2][3]=="X")
+	{
+		return false;
+	}
 }
 
 void Board()
