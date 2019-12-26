@@ -9,7 +9,8 @@ class Player1
 {
 	private:
 		string sign = "X";
-		string name = "";		
+		string name = "";
+		bool winner = false;		
 	public:
 		Player1(string name)
 		{
@@ -28,6 +29,14 @@ class Player1
 				}
 			}	
 		}
+		void setWinner()
+		{
+			winner = true;
+		}
+		bool getWinner() const
+		{
+			return winner;
+		}
 		string getSign() const
 		{
 			return sign;
@@ -43,6 +52,7 @@ class Player2
 	private:
 		string sign = "O";
 		string name = "";
+		bool winner = false;
 	public:
 		Player2(string name)
 		{
@@ -61,6 +71,15 @@ class Player2
 				}
 			}	
 		}
+		void setWinner()
+		{
+			winner = true;
+		}
+		bool getWinner() const
+		{
+			return winner;
+		}
+		
 		string getSign()
 		{
 			return sign;
@@ -196,7 +215,8 @@ int main()
 	setUp(array);
 	cout<<endl;
 
-	while(true)
+//	while(true)
+	for(int i = 0 ; i < 5 ;i++)
 	{
 		
 		cout<<"--"<<p1.getName()<<" turn--"<<endl;
@@ -206,6 +226,7 @@ int main()
 		setUp(array);
 		if(!checkRules(array))
 		{
+			p1.setWinner();
 			break;	
 		}
 		
@@ -217,14 +238,22 @@ int main()
 		setUp(array);
 		if(!checkRules(array))
 		{
+			p2.setWinner();
 			break;	
 		}
-		
 		cout<<endl;
 	}
 	cout<<endl;
-	cout<<"WINNER"<<endl;
+	if(p1.getWinner())
+	{
+		cout<<p1.getName()<<" is the Winner!!!"<<endl;
+	}
+	else if(p2.getWinner())
+	{
+		cout<<p2.getName()<<" is the Winner!!!"<<endl;
+	}
 
+	
 	
 
 	
